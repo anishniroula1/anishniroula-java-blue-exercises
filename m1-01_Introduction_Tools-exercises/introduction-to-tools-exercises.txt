@@ -266,7 +266,7 @@ $ git commit -m "feature completion"
  1 file changed, 9 insertions(+)
  create mode 100644 m1-01_Introduction_Tools-exercises/java-helloworld/src/main/java/com/techelevator/Helloworld.java.copy
 
-$ git push origin 
+$ git push origin master
 Counting objects: 14, done.
 Delta compression using up to 4 threads.
 Compressing objects: 100% (12/12), done.
@@ -283,8 +283,11 @@ $ rm Helloworld.java.copy
 
 The "rm" parameter is the name of the file to be deleted.
 
-$ <enter command to list all files and folders in order to confirm the file deletion>
-<type or copy-paste the result here>
+$ ls -la  Helloworld.java
+drwxr-xr-x  4 aniroula  staff   128 Jan 14 20:01 .
+drwxr-xr-x  4 aniroula  staff   128 Jan 14 19:36 ..
+-rw-r--r--@ 1 aniroula  staff  6148 Jan 14 20:01 .DS_Store
+-rw-r--r--  1 aniroula  staff   141 Jan 14 16:30 Helloworld.java
 
 
 ----
@@ -306,7 +309,9 @@ command line when that seems natural.
 Regardless of the option you chose, check your new location.
 
 $ <enter command to display present working directory>
+$ pwd
 <type or copy-paste your present working directory here>
+/Users/aniroula/Development/anishniroula-java-blue-exercises/m1-01_Introduction_Tools-exercises/java-helloworld
 
 
 ----
@@ -316,8 +321,12 @@ $ <enter command to display present working directory>
 
 $ mkdir docs
 $ <enter the command to change directory to "docs" using a relative path>
+$ cd docs/
 $ <enter command to display present working directory>
+$ pwd
 <type or copy-paste your present working directory here>
+/Users/aniroula/Development/anishniroula-java-blue-exercises/m1-01_Introduction_Tools-exercises/java-helloworld/docs
+
 
 ----
 19. Create a new file name "readme.txt" using Visual Studio Code, and add the text
