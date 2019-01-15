@@ -40,7 +40,7 @@ Home directory
 ----
 
 $ pwd
-<type or copy-paste the result here>
+/Users/aniroula/Development/anishniroula-java-blue-exercises/m1-01_Introduction_Tools-exercises/java-helloworld
 
 The present working directory displayed should match the directory you changed 
 to in Exercise 1.  Note, the two may not match at the very beginning if you
@@ -56,7 +56,13 @@ changes directory, and the "pwd" command reflects this.
 ----
 
 $ ls -la
-<type or copy-paste the result here>
+total 24
+drwxr-xr-x  6 aniroula  staff   192 Jan 14 16:35 .
+drwxr-xr-x  5 aniroula  staff   160 Jan 14 16:31 ..
+-rw-r--r--@ 1 aniroula  staff  6148 Jan 14 16:35 .DS_Store
+drwxr-xr-x  3 aniroula  staff    96 Jan 14 16:30 database
+-rw-r--r--  1 aniroula  staff  1091 Jan 14 16:30 pom.xml
+drwxr-xr-x  4 aniroula  staff   128 Jan 14 16:30 src
 
 
 ----
@@ -64,22 +70,23 @@ $ ls -la
     Exercise 4 represent?
 ----
 
-<type or copy-paste your answer here>
+one dot (.) is current folder and two dot (..) is parent folder.
 
 ----
 6.  What are the names of the files, including any dot-files, displayed in the
     directory listing in Exercise 4?
 ----
 
-<type or copy-paste your answer here>
+pom.xml
 
+#double check this answer.
 
 ----
 7.  What are the names of the folders, including any dot-folders, displayed in 
     the directory listing in Exercise 4?
 ----
 
-<type or copy-paste your answer here>
+Java-helloworld, src and database
 
 
 ----
