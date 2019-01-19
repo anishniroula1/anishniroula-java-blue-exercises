@@ -442,8 +442,8 @@ public class Exercises {
 	}
 
 	/*
-	 30. We are having a party with amounts of tea and candy. Return the int outcome of the party encoded as
-	 0=bad, 1=good, or 2=great. A party is good (1) if both tea and candy are at least 5. However, if
+	 30. We are having a party with amounts of tea and candy. Return the int outcome of the party 
+	 encoded as 0=bad, 1=good, or 2=great. A party is good (1) if both tea and candy are at least 5. However, if
 	 either tea or candy is at least double the amount of the other one, the party is great (2). However,
 	 in all cases, if either tea or candy is less than 5, the party is always bad (0).
 	 teaParty(6, 8) → 1
@@ -451,7 +451,15 @@ public class Exercises {
 	 teaParty(20, 6) → 2
 	 */
 	public int teaParty(int tea, int candy) {
-		return 0;
+		
+		if(tea <5 || candy <5)
+		{
+			return 0;
+		}
+		else if(tea >= 2 * candy || candy >=2*tea) {
+			return 2;
+		}
+		return 1;
 	}
 
 	/*
@@ -461,6 +469,9 @@ public class Exercises {
 	 twoAsOne(3, 2, 2) → false
 	 */
 	public boolean twoAsOne(int a, int b, int c) {
+		if ((a + b) == c || (b + c) == a || (c + a) == b) {
+			return true;
+		}
 		return false;
 	}
 
@@ -472,7 +483,10 @@ public class Exercises {
 	 inOrder(1, 1, 2, true) → true
 	 */
 	public boolean inOrder(int a, int b, int c, boolean bOk) {
-		return false;
+		if(bOk) {
+			return (c > b);
+		}
+		return (b > a && c > b);
 	}
 
 	/*
@@ -484,7 +498,10 @@ public class Exercises {
 	 inOrderEqual(5, 5, 7, true) → true
 	 */
 	public boolean inOrderEqual(int a, int b, int c, boolean equalOk) {
-		return false;
+		if (equalOk) {
+			return (a<=b && b<=c);
+		}
+		return (a<b && b<c);
 	}
 
 	/*
@@ -495,7 +512,17 @@ public class Exercises {
 	 loneSum(3, 3, 3) → 0
 	 */
 	public int loneSum(int a, int b, int c) {
-		return 0;
+		if(a == b)
+		{
+	    	if(a == c)
+	    	  return 0;
+	    	return c;
+	  	}
+	  	if(a == c)
+	    	return b; 
+	  	if(b == c)
+	    	return a;
+	  return (a + b + c);
 	}
 
 	/*
@@ -509,8 +536,14 @@ public class Exercises {
 	 luckySum(13, 13, 3) → 0
 	 */
 	public int luckySum(int a, int b, int c) {
-		
-		return 0;
+		if(a == 13)
+			return 0;
+		if(b == 13)
+			return a;
+		if(c == 13)
+			return (a + b);
+		return (a + b + c);
 	}
-
 }
+	
+	
