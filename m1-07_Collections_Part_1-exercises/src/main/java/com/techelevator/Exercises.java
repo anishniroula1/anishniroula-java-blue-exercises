@@ -14,7 +14,6 @@ public class Exercises {
 	/*
 	 Note, for-each is preferred, and should be used when possible.
 	 */
-
 	/*
 	 Given an array of Strings, return an ArrayList containing the same Strings in the same order 
 	 array2List( {"Apple", "Orange", "Banana"} )  ->  ["Apple", "Orange", "Banana"]
@@ -22,7 +21,11 @@ public class Exercises {
 	 array2List( {"Left", "Right", "Forward", "Back"} )  ->  ["Left", "Right", "Forward", "Back"] 
 	 */
 	public List<String> array2List(String[] stringArray) {
-		return null;
+		List<String> words = new ArrayList<String>();
+		for (String newArray : stringArray) {
+			words.add(newArray);
+		}
+		return words;
 	}
 	
 	/*
@@ -32,7 +35,12 @@ public class Exercises {
 	 list2Array( ["Left", "Right", "Forward", "Back"] )  ->  {"Left", "Right", "Forward", "Back"}
 	 */
 	public String[] list2Array(List<String> stringList) {
-		return null;
+		String[] newString = new String[stringList.size()];
+		for (int i= 0; i<stringList.size(); i++) {
+			newString[i]=stringList.get(i);
+			
+		}
+		return newString;
 	}
 	
 	/*
@@ -43,7 +51,14 @@ public class Exercises {
 	 no4LetterWords( {"Jack", "Jill", "Jane", "John", "Jim"} )  ->  ["Jim"]
 	 */
 	public List<String> no4LetterWords(String[] stringArray) {
-		return null;
+		List<String> words = new ArrayList<String>();
+		for (String nextWord : stringArray) {
+			if(nextWord.length() !=4) {
+				words.add(nextWord);
+			}
+		}
+		
+		return words;
 	}
 
 
@@ -56,7 +71,14 @@ public class Exercises {
 		-> ["way", "the", "all", "jingle", "bells", "jingle", "bells", "jingle"]
 	 */
 	public List<String> reverseList(List<String> stringList) {
-		return null;
+		Stack<String> newString = new Stack<String>();
+		//newString = (Stack<String>) stringList;
+		for (String reverse : stringList) {
+			newString.push(reverse);
+			
+		}
+		
+		return newString;
 	}
 
 	/*
@@ -66,7 +88,11 @@ public class Exercises {
 	 arrayInt2ListDouble( {84, 99, 3285, 13, 877} ) -> [42, 49.5, 1642.5, 6.5, 438.5]
 	 */
 	public List<Double> arrayInt2ListDouble(int[] intArray) {
-		return null;
+		List<Double> words = new ArrayList<Double>();
+		for (double newDouble : intArray) {
+			words.add(newDouble/2);
+		}		
+		return words;
 	}
 	
 	/*
@@ -76,7 +102,13 @@ public class Exercises {
 	 findLargest( [34070, 1380, 81238, 7782, 234, 64362, 627] ) -> 64362
 	 */
 	public Integer findLargest(List<Integer> integerList) {
-		return null;
+		Integer neLarg = new Integer(0);
+		for (Integer findLarg:integerList) {
+			if(findLarg>neLarg) {
+				neLarg = findLarg;
+			}
+		}
+		return neLarg;
 	}
 	
 	/*
@@ -86,7 +118,13 @@ public class Exercises {
 	 oddOnly( {734, 233, 782, 811, 3, 9999} ) -> [233, 811, 3, 9999]  
 	 */
 	public List<Integer> oddOnly(Integer[] integerArray) {
-		return null;
+		List<Integer> nextInt = new ArrayList<Integer>();
+		for (int newOdd : integerArray) {
+			if(newOdd % 2==1) {
+				nextInt.add(newOdd);
+			}
+		}
+		return nextInt;
 	}
 	
 	/* 
@@ -97,7 +135,13 @@ public class Exercises {
 	 foundIntTwice( [9, 23, 44, 2, 88, 44], 44) -> true
 	 */
 	public boolean foundIntTwice(List<Integer> integerList, int intToFind) {
-		return false;
+		int twiceInt = 0;
+		for(int newInt : integerList) {
+			if(newInt==intToFind) {
+				twiceInt +=1;
+			}
+		}
+		return twiceInt>=2;
 	}
 	
 	/*
@@ -113,7 +157,23 @@ public class Exercises {
 	 HINT: To convert an integer x to a string you can call x.toString() in your code (e.g. if x = 1 then x.ToString() equals "1")
 	 */
 	public List<String> fizzBuzzList(Integer[] integerArray) {
-		return null;
+		List<String> newString = new ArrayList<String>();
+		for(Integer newInt : integerArray) {
+			if(newInt % 5==0 && newInt %3==0) {
+				newString.add("FizzBuzz");
+			}
+			else if(newInt%3==0) {
+				newString.add("Fizz");
+			}
+			else if(newInt%5==0) {
+				newString.add("Buzz");
+			}
+			
+			else {
+				newString.add(Integer.toString(newInt));
+			}
+		}
+		return newString;
 	}
 
 	/*
@@ -124,6 +184,11 @@ public class Exercises {
 	 interleaveLists( [1, 2, 3], [4, 5, 6] )  ->  [1, 4, 2, 5, 3, 6]
 	 */
 	public List<Integer> interleaveLists(List<Integer> listOne, List<Integer> listTwo) {
+		List<Integer> leaveList = new ArrayList<Integer>();
+//		for(int i= 0; i<)
+		if(listOne.size()==listTwo.size()) {
+			leaveList.get(listOne.get(0))
+		}
 		return null;
 	}
 
