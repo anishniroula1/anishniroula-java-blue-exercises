@@ -184,12 +184,20 @@ public class Exercises {
 	 interleaveLists( [1, 2, 3], [4, 5, 6] )  ->  [1, 4, 2, 5, 3, 6]
 	 */
 	public List<Integer> interleaveLists(List<Integer> listOne, List<Integer> listTwo) {
-		List<Integer> leaveList = new ArrayList<Integer>();
-//		for(int i= 0; i<)
-		if(listOne.size()==listTwo.size()) {
-			leaveList.get(listOne.get(0))
+		List<Integer> addList = new ArrayList<Integer>();
+		//Integer leaveList = new Integer(0);
+		
+		
+		if(listOne.size()>0) {
+			for(int i = 0; i<listOne.size();i++) {
+				addList.add(listOne.get(i),listTwo.get(i));
+				
+				
+			}
+//			addList.add(1);
+			return addList;
 		}
-		return null;
+		return addList;
 	}
 
 	/*
@@ -202,7 +210,26 @@ public class Exercises {
 	 boardingGate( [0, -1, 44, 31, 17, 7, 27, 16, 26, 6] ) -> [7, 6, 17, 16, 27, 26]
 	 */
 	public List<Integer> boardingGate(List<Integer> seatNumberList) {
-		return null;
+		List<Integer> gateBoarding = new ArrayList<Integer>();
+		
+		for(int i = 0; i<seatNumberList.size();i++) {
+			
+		if(seatNumberList.get(i)<1 || newSeat>30) {
+			return null;
+		}
+		else if(newSeat>=1 &&newSeat<=10) {
+			gateBoarding.add(newSeat);
+		}
+		else if(newSeat>=11 && newSeat <=20) {
+			gateBoarding.add(newSeat);
+		}
+		else if(newSeat>=21 && newSeat <=30) {
+			gateBoarding.add(newSeat);
+		}
+		return gateBoarding;
+		}
+
+		return gateBoarding;
 	}
 
 }

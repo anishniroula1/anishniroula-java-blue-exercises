@@ -1,5 +1,6 @@
 package com.techelevator;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -10,7 +11,7 @@ public class Exercises {
 	 */
 
 	/*
-	 * Given the name of an animal, return the name of a group of that animal
+	1.  * Given the name of an animal, return the name of a group of that animal
 	 * (e.g. "Elephant" -> "Herd", "Rhino" - "Crash").
 	 *
 	 * The animal name should be case insensitive so "elephant", "Elephant", and
@@ -35,11 +36,28 @@ public class Exercises {
 	 *
 	 */
 	public String animalGroupName(String animalName) {
-		return null;
+		Map<String, String> groupAnimal = new HashMap<String, String>();
+		groupAnimal.put("rhino", "Crash");
+		groupAnimal.put("giraffe", "Tower");
+		groupAnimal.put("elephant", "Herd");
+		groupAnimal.put("lion", "Pride");
+		groupAnimal.put("crow", "Murder");
+		groupAnimal.put("pigeon", "Kit");
+		groupAnimal.put("flamingo", "Pat");
+		groupAnimal.put("deer", "Herd");
+		groupAnimal.put("dog", "Pack");
+		groupAnimal.put("crocodile", "Float");
+		
+		String group = groupAnimal.get(animalName.toLowerCase());
+		if(group == null || group.length() == 0) {
+			return "unknown";
+		}
+		
+		return group;
 	}
 
 	/*
-	 * Given an String item number (a.k.a. SKU), return the discount percentage if the item is on sale.
+	 2. * Given an String item number (a.k.a. SKU), return the discount percentage if the item is on sale.
 	 * If the item is not on sale, return 0.00.
 	 *
 	 * If the item number is empty or null, return 0.00.
@@ -61,12 +79,26 @@ public class Exercises {
 	 *
 	 */
 	public Double isItOnSale(String itemNumber) {
-		return null;
+		Map<String, Double> onSale = new HashMap<String, Double>();
+		onSale.put("kitchen4001",0.20);
+		onSale.put("garage1070",0.15);
+		onSale.put("livingroom",0.10);
+		onSale.put("kitchen6073",0.40);
+		onSale.put("bedroom3434",0.60);
+		onSale.put("bath0073",0.15);
+		
+		Double saleItem = onSale.get(itemNumber.toLowerCase());
+		
+		if(saleItem==null || saleItem.equals("")) {
+			return 0.00;
+		}
+		
+		return saleItem;
 	}
 
 	/*
-	 * Modify and return the given map as follows: if "Peter" has more than 0 money, transfer half of it to "Paul",
-	 * but only if Paul has less than $10s.
+	 3. * Modify and return the given map as follows: //if "Peter" has more than 0 money, transfer half of it to "Paul"//,
+	 * but only //if Paul has less than $10s//.
 	 *
 	 * Note, monetary amounts are specified in cents: penny=1, nickel=5, ... $1=100, ... $10=1000, ...
 	 *
@@ -75,11 +107,27 @@ public class Exercises {
 	 *
 	 */
 	public Map<String, Integer> robPeterToPayPaul(Map<String, Integer> peterPaul) {
-		return null;
-	}
+		
+		/*if(peterMOney>$10)
+		*transfer peter half money to paul
+		else if (paul <$10)
+		*/
+		if (peterPaul.get("Peter") > 0) {
+			Integer halfOfPetersMoney = peterPaul.get("Peter") / 2;
+			if (peterPaul.get("Paul") < 1000) {
+			peterPaul.put("Paul", peterPaul.get("Paul") + halfOfPetersMoney);
+			peterPaul.put("Peter", peterPaul.get("Peter") - halfOfPetersMoney);
+			}
+			else {
+			return peterPaul;
+			}
+
+			    }
+			    return peterPaul;   
+			}
 
     /*
-	 * Modify and return the given map as follows: if "Peter" has $50 or more, AND "Paul" has $100 or more,
+	4.  * Modify and return the given map as follows: if "Peter" has $50 or more, AND "Paul" has $100 or more,
 	 * then create a new "PeterPaulPartnership" worth a combined contribution of a quarter of each partner's
 	 * current worth.
 	 *
@@ -88,11 +136,26 @@ public class Exercises {
 	 *
 	 */
 	public Map<String, Integer> peterPaulPartnership(Map<String, Integer> peterPaul) {
-		return null;
+		//Map<String, Integer> contribute = new HashMap<String, Integer>();
+			Integer peterPartnership;
+			Integer paulPatnership;
+			Integer togetherContribution;
+		if(peterPaul.get("Peter")>=5000 && peterPaul.get("Paul")>=10000) {
+			peterPartnership = peterPaul.get("Peter")/4;
+			paulPatnership=peterPaul.get("Paul")/4;
+			togetherContribution = peterPartnership +paulPatnership;
+			peterPaul.put("PeterPaulPartnership",togetherContribution);
+			peterPaul.put("Peter",peterPaul.get("Peter")-peterPartnership);
+			peterPaul.put("Paul", peterPaul.get("Paul")-paulPatnership);
+			
+			
+		}
+			
+		return peterPaul;
 	}
 
 	/*
-	 * Given an array of non-empty strings, return a Map<String, String> where for every different string in the array,
+	5.  * Given an array of non-empty strings, return a Map<String, String> where for every different string in the array,
 	 * there is a key of its first character with the value of its last character.
 	 *
 	 * beginningAndEnding(["code", "bug"]) → {"b": "g", "c": "e"}
@@ -100,11 +163,24 @@ public class Exercises {
 	 * beginningAndEnding(["muddy", "good", "moat", "good", "night"]) → {"g": "d", "m": "t", "n": "t"}
 	 */
 	public Map<String, String> beginningAndEnding(String[] words) {
+		Map<String, String> beginingEnding = new HashMap<String,String>();
+		String begining;
+		String ending;
+		
+		for (String newChar : words) {
+			if(newChar.length()>0) {
+				begining = newChar.substring(0);
+				ending = newChar.substring(newChar.length()-1);
+				beginingEnding.get(key)
+			}
+			
+		}
+		
 		return null;
 	}
 
 	/*
-	 * Given an array of strings, return a Map<String, Integer> with a key for each different string, with the value the
+	 6. * Given an array of strings, return a Map<String, Integer> with a key for each different string, with the value the
 	 * number of times that string appears in the array.
 	 *
 	 * ** A CLASSIC **
@@ -119,7 +195,7 @@ public class Exercises {
 	}
 
 	/*
-	 * Given an array of int values, return a Map<Integer, Integer> with a key for each int, with the value the
+	7.  * Given an array of int values, return a Map<Integer, Integer> with a key for each int, with the value the
 	 * number of times that int appears in the array.
 	 *
 	 * ** The lesser known cousin of the the classic wordCount **
@@ -134,7 +210,7 @@ public class Exercises {
 	}
 
 	/*
-	 * Given an array of strings, return a Map<String, Boolean> where each different string is a key and value
+	 8. * Given an array of strings, return a Map<String, Boolean> where each different string is a key and value
 	 * is true only if that string appears 2 or more times in the array.
 	 *
 	 * wordMultiple(["a", "b", "a", "c", "b"]) → {"b": true, "c": false, "a": true}
@@ -147,7 +223,7 @@ public class Exercises {
 	}
 
 	/*
-	 * Given two maps, Map<String, Integer>, merge the two into a new map, Map<String, Integer> where keys in Map2,
+	 9. * Given two maps, Map<String, Integer>, merge the two into a new map, Map<String, Integer> where keys in Map2,
 	 * and their Integer values, are added to the Integer values of matching keys in Map1. Return the new map.
 	 *
 	 * Unmatched keys and their Integer values in Map2 are simply added to Map1.
@@ -161,7 +237,7 @@ public class Exercises {
 	}
 
 	/*
-	 * Just when you thought it was safe to get back in the water --- last2Revisited!!!!
+	10.  * Just when you thought it was safe to get back in the water --- last2Revisited!!!!
 	 *
 	 * Given an array of strings, for each string, the count of the number of times that a substring length 2 appears
 	 * in the string and also as the last 2 chars of the string, so "hixxxhi" yields 1.
@@ -180,7 +256,7 @@ public class Exercises {
 	}
 
 	/*
-	 Given a list of Strings, return a list that contains the distinct values. In other words, no value is to be
+	 11. Given a list of Strings, return a list that contains the distinct values. In other words, no value is to be
 	 included more than once in the returned list. (Hint: Think Set)
 	 distinctValues( ["red", "yellow", "green", "yellow", "blue", "green", "purple"] ) -> ["red", "yellow", "green", "blue", "purple"]
 	 distinctValues( ["jingle", "bells", "jingle", "bells", "jingle", "all", "the", "way"] ) -> ["jingle", "bells", "all", "the", "way"]
