@@ -71,14 +71,20 @@ public class Exercises {
 		-> ["way", "the", "all", "jingle", "bells", "jingle", "bells", "jingle"]
 	 */
 	public List<String> reverseList(List<String> stringList) {
+		List<String> listReverse = new ArrayList<String>();
 		Stack<String> newString = new Stack<String>();
-		//newString = (Stack<String>) stringList;
-		for (String reverse : stringList) {
-			newString.push(reverse);
-			
+		Stack<String> lastString = new Stack<String>();
+		
+		for (String list:stringList) {
+			newString.push(list);
+			//System.out.println(newString);
+		}
+		while (newString.isEmpty() == false) {
+			lastString.pop();
+			System.out.println(" "+lastString.pop());
 		}
 		
-		return newString;
+		return lastString.pop();;
 	}
 
 	/*
@@ -211,21 +217,23 @@ public class Exercises {
 	 */
 	public List<Integer> boardingGate(List<Integer> seatNumberList) {
 		List<Integer> gateBoarding = new ArrayList<Integer>();
+		Queue<Integer> boardingPass = new LinkedList<Integer>();
 		
-		for(int i = 0; i<seatNumberList.size();i++) {
+		for(Integer seatList:seatNumberList) {
 			
-		if(seatNumberList.get(i)<1 || newSeat>30) {
-			return null;
+		if(seatList<1 || seatList>30) {
+			boardingPass.offer(gateBoarding.get(seatList));
+			System.out.println(boardingPass);
 		}
-		else if(newSeat>=1 &&newSeat<=10) {
-			gateBoarding.add(newSeat);
-		}
-		else if(newSeat>=11 && newSeat <=20) {
-			gateBoarding.add(newSeat);
-		}
-		else if(newSeat>=21 && newSeat <=30) {
-			gateBoarding.add(newSeat);
-		}
+//		else if(newSeat>=1 &&newSeat<=10) {
+//			gateBoarding.add(newSeat);
+//		}
+//		else if(newSeat>=11 && newSeat <=20) {
+//			gateBoarding.add(newSeat);
+//		}
+//		else if(newSeat>=21 && newSeat <=30) {
+//			gateBoarding.add(newSeat);
+//		}
 		return gateBoarding;
 		}
 

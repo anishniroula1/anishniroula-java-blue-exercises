@@ -1,8 +1,12 @@
 package com.techelevator;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 public class Exercises {
 
@@ -164,19 +168,12 @@ public class Exercises {
 	 */
 	public Map<String, String> beginningAndEnding(String[] words) {
 		Map<String, String> beginingEnding = new HashMap<String,String>();
-		String begining;
-		String ending;
 		
-		for (String newChar : words) {
-			if(newChar.length()>0) {
-				begining = newChar.substring(0);
-				ending = newChar.substring(newChar.length()-1);
-				beginingEnding.get(key)
-			}
-			
+		for(int i = 0; i<words.length; i++) {
+			beginingEnding.put(words[i].substring(0,1), words[i].substring(words[i].length()-1));
 		}
 		
-		return null;
+		return beginingEnding;
 	}
 
 	/*
@@ -191,8 +188,23 @@ public class Exercises {
 	 *
 	 */
 	public Map<String, Integer> wordCount(String[] words) {
-		return null;
-	}
+		Map<String, Integer> countWord = new HashMap<String, Integer>();
+		
+		for(int i = 0; i<words.length; i++) {
+			Integer count = 1;
+			countWord.put(words[i], count);
+			for (int j = 0; j<words.length;j++) {
+				if(i==j) {
+					continue;
+				}
+				else if(words[i].equals(words[j])) {
+					count +=1;
+					countWord.put(words[i], count);
+				}
+			}
+		}
+		return countWord;
+		}
 
 	/*
 	7.  * Given an array of int values, return a Map<Integer, Integer> with a key for each int, with the value the
@@ -206,20 +218,52 @@ public class Exercises {
 	 *
 	 */
 	public Map<Integer, Integer> integerCount(int[] ints) {
-		return null;
+		Map<Integer, Integer> countInt = new HashMap<Integer, Integer>();
+		
+		for(int i = 0; i<ints.length;i++) {
+			Integer count = 1;
+			countInt.put(ints[i], count);
+			for( int j = 0; j<ints.length; j++) {
+				if (i==j) {
+					continue;
+				}
+				else if(ints[i]==ints[j]) {
+					count +=1;
+					countInt.put(ints[i], count);
+				}
+			}
+		}
+		
+		return countInt;
 	}
 
 	/*
-	 8. * Given an array of strings, return a Map<String, Boolean> where each different string is a key and value
-	 * is true only if that string appears 2 or more times in the array.
+	 8. * Given an array of strings, return a Map<String, Boolean> where each different 
+	 string is a key and value is true only if that string appears 2 or more times 
+	 in the array.
 	 *
 	 * wordMultiple(["a", "b", "a", "c", "b"]) → {"b": true, "c": false, "a": true}
 	 * wordMultiple(["c", "b", "a"]) → {"b": false, "c": false, "a": false}
 	 * wordMultiple(["c", "c", "c", "c"]) → {"c": true}
 	 *
 	 */
-	public Map<String, Boolean> wordMultiple(String[] words) {
-		return null;
+	public Map<String, Boolean> wordMultiple(String[] words) { 
+		// if word.i is appear more then twice
+		// return true, else false
+		Map<String, Boolean> multipleWord = new HashMap<String, Boolean>();
+		
+		for(String newWord : words) {
+			if(!multipleWord.containsKey(newWord)) {
+				multipleWord.put(newWord, false);
+			}
+			else {
+				multipleWord.put(newWord, true);
+			}
+		}
+			
+			
+		
+		return multipleWord;
 	}
 
 	/*
@@ -233,7 +277,24 @@ public class Exercises {
 	 *
 	 */
 	public Map<String, Integer> consolidateInventory(Map<String, Integer> mainWarehouse, Map<String, Integer> remoteWarehouse) {
-		return null;
+		Map<String, Integer> newInventory = new HashMap<String, Integer>();
+		
+		for(String newWareHouse :mainWarehouse.keySet()) {
+			for(String newRemoteWarehouse: remoteWarehouse.keySet()) {
+				if(newWareHouse.equals(newRemoteWarehouse)) {
+					Integer newValues = mainWarehouse.get(newWareHouse) + remoteWarehouse.get(newRemoteWarehouse);
+					newInventory.put(newWareHouse, newValues);
+				}
+				else {
+					newInventory.put(newWareHouse, mainWarehouse.get(newWareHouse));
+					newInventory.put(newRemoteWarehouse, remoteWarehouse.get(newRemoteWarehouse));
+				}
+			}
+		
+		
+		
+	}
+		return newInventory;
 	}
 
 	/*
@@ -252,9 +313,22 @@ public class Exercises {
 	 *
 	 */
 	public Map<String, Integer> last2Revisited(String[] words) {
-		return null;
-	}
-
+		Map<String, Integer> lastTwo  = new HashMap<String, Integer>();
+		
+		//int countXX(String str) 
+			int count = 0;
+			for(int i = 0; i < words.length-2; i++) {
+				//System.out.println(words[i]);
+			if(words[i].substring(0).equals("xx")) 
+				{
+			count +=1;
+			lastTwo.put(words[i], count);
+			//System.out.println(lastTwo);
+			}
+			}
+			//System.out.println(lastTwo);
+			return lastTwo;
+			}
 	/*
 	 11. Given a list of Strings, return a list that contains the distinct values. In other words, no value is to be
 	 included more than once in the returned list. (Hint: Think Set)
@@ -262,7 +336,17 @@ public class Exercises {
 	 distinctValues( ["jingle", "bells", "jingle", "bells", "jingle", "all", "the", "way"] ) -> ["jingle", "bells", "all", "the", "way"]
 	 */
 	public List<String> distinctValues(List<String> stringList) {
-		return null;
+		List<String> stringDistinct = new ArrayList<String>();
+		Set<String> newValue = new LinkedHashSet<String>();
+		
+		for(String distinctVal: stringList) {
+			newValue.add(distinctVal);	
+		}
+		for (String value : newValue) {
+			stringDistinct.add(value);
+			}
+		
+		return stringDistinct;
 	}
 
 }
