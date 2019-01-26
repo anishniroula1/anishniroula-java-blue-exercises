@@ -72,19 +72,13 @@ public class Exercises {
 	 */
 	public List<String> reverseList(List<String> stringList) {
 		List<String> listReverse = new ArrayList<String>();
-		Stack<String> newString = new Stack<String>();
-		Stack<String> lastString = new Stack<String>();
 		
-		for (String list:stringList) {
-			newString.push(list);
-			//System.out.println(newString);
-		}
-		while (newString.isEmpty() == false) {
-			lastString.pop();
-			System.out.println(" "+lastString.pop());
-		}
 		
-		return lastString.pop();;
+		for (int i = stringList.size() - 1; i >= 0; i--) {
+			listReverse.add(stringList.get(i));
+		}
+
+		return listReverse;
 	}
 
 	/*
@@ -108,14 +102,14 @@ public class Exercises {
 	 findLargest( [34070, 1380, 81238, 7782, 234, 64362, 627] ) -> 64362
 	 */
 	public Integer findLargest(List<Integer> integerList) {
-		Integer neLarg = new Integer(0);
-		for (Integer findLarg:integerList) {
-			if(findLarg>neLarg) {
-				neLarg = findLarg;
-			}
+		int largestInt = 0;
+		for (int nextInt : integerList) {
+		if (nextInt > largestInt) {
+		largestInt = nextInt;
 		}
-		return neLarg;
-	}
+		}
+		return largestInt;
+		}
 	
 	/*
 	 Given an array of Integers, return a List of Integers containing just the odd values.
@@ -190,21 +184,29 @@ public class Exercises {
 	 interleaveLists( [1, 2, 3], [4, 5, 6] )  ->  [1, 4, 2, 5, 3, 6]
 	 */
 	public List<Integer> interleaveLists(List<Integer> listOne, List<Integer> listTwo) {
-		List<Integer> addList = new ArrayList<Integer>();
-		//Integer leaveList = new Integer(0);
-		
-		
-		if(listOne.size()>0) {
-			for(int i = 0; i<listOne.size();i++) {
-				addList.add(listOne.get(i),listTwo.get(i));
-				
-				
-			}
-//			addList.add(1);
-			return addList;
+		List<Integer> weavingTwoLists = new ArrayList<Integer>();
+		int sizeOfForLoop = 0;
+		if (listOne.size() > listTwo.size() || listOne.size() == listTwo.size()){
+		sizeOfForLoop = listOne.size();
 		}
-		return addList;
-	}
+		else {
+		sizeOfForLoop = listTwo.size();
+		}
+		for (int i = 0; i < sizeOfForLoop; i ++) {
+		if (i < listOne.size() && i < listTwo.size()) {
+		weavingTwoLists.add(listOne.get(i));
+		weavingTwoLists.add(listTwo.get(i));
+		}
+		else if (i < listOne.size()) {
+		weavingTwoLists.add(listOne.get(i));
+		}
+		else if (i < listTwo.size()) {
+		weavingTwoLists.add(listTwo.get(i));
+		}
+		}
+		return weavingTwoLists;
+		}
+
 
 	/*
 	 Given a list of Integers representing seat numbers, group them into ranges 1-10, 11-20, and 21-30.
@@ -216,28 +218,31 @@ public class Exercises {
 	 boardingGate( [0, -1, 44, 31, 17, 7, 27, 16, 26, 6] ) -> [7, 6, 17, 16, 27, 26]
 	 */
 	public List<Integer> boardingGate(List<Integer> seatNumberList) {
-		List<Integer> gateBoarding = new ArrayList<Integer>();
-		Queue<Integer> boardingPass = new LinkedList<Integer>();
-		
-		for(Integer seatList:seatNumberList) {
-			
-		if(seatList<1 || seatList>30) {
-			boardingPass.offer(gateBoarding.get(seatList));
-			System.out.println(boardingPass);
+		List<Integer> numbersInRanges = new ArrayList<Integer>();
+		Queue<Integer> numbersOneToTen = new LinkedList<Integer>();
+		Queue<Integer> numbersElevenToTwenty = new LinkedList<Integer>();
+		Queue<Integer> numbersTwentyOneToThirty = new LinkedList<Integer>();
+		for (Integer numberOfSeat : seatNumberList) {
+		if (numberOfSeat >= 1 && numberOfSeat <= 10) {
+		numbersOneToTen.offer(numberOfSeat);
 		}
-//		else if(newSeat>=1 &&newSeat<=10) {
-//			gateBoarding.add(newSeat);
-//		}
-//		else if(newSeat>=11 && newSeat <=20) {
-//			gateBoarding.add(newSeat);
-//		}
-//		else if(newSeat>=21 && newSeat <=30) {
-//			gateBoarding.add(newSeat);
-//		}
-		return gateBoarding;
+		else if (numberOfSeat >= 11 && numberOfSeat <= 20) {
+		numbersElevenToTwenty.offer(numberOfSeat);
+		}
+		else if (numberOfSeat >= 21 && numberOfSeat <= 30) {
+		numbersTwentyOneToThirty.offer(numberOfSeat);
+		}
+		}
+		while (numbersOneToTen.isEmpty() == false) {
+		numbersInRanges.add(numbersOneToTen.poll());
+		}
+		while (numbersElevenToTwenty.isEmpty() == false) {
+		numbersInRanges.add(numbersElevenToTwenty.poll());
+		}
+		while (numbersTwentyOneToThirty.isEmpty() == false) {
+		numbersInRanges.add(numbersTwentyOneToThirty.poll());
+		}
+		return numbersInRanges;
 		}
 
-		return gateBoarding;
-	}
-
-}
+		}
