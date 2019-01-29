@@ -141,12 +141,10 @@ public class Exercises {
 	 */
 	public Map<String, Integer> peterPaulPartnership(Map<String, Integer> peterPaul) {
 		//Map<String, Integer> contribute = new HashMap<String, Integer>();
-			Integer peterPartnership;
-			Integer paulPatnership;
+			Integer peterPartnership= peterPaul.get("Peter")/4;
+			Integer paulPatnership=peterPaul.get("Paul")/4;
 			Integer togetherContribution;
 		if(peterPaul.get("Peter")>=5000 && peterPaul.get("Paul")>=10000) {
-			peterPartnership = peterPaul.get("Peter")/4;
-			paulPatnership=peterPaul.get("Paul")/4;
 			togetherContribution = peterPartnership +paulPatnership;
 			peterPaul.put("PeterPaulPartnership",togetherContribution);
 			peterPaul.put("Peter",peterPaul.get("Peter")-peterPartnership);

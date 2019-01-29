@@ -1,7 +1,10 @@
 package com.techelevator;
 
+import java.util.Arrays;
+import java.util.LinkedHashSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Set;
 
 public class Exercises {
 
@@ -12,6 +15,15 @@ public class Exercises {
     arrayDeduplication([1, 1, 1]) → [1]
     */
     public int[] arrayDeduplication(int[] nums) {
+    	Set<Integer> duplicateNumber = new LinkedHashSet<Integer>();
+    	
+     	for (int duplicate: nums) {
+    		duplicateNumber.add(duplicate);
+    	
+    		
+    	}
+    	
+    	
         return null;
     }
     
@@ -24,6 +36,16 @@ public class Exercises {
         arrayIntersection([], []) → []
     */
     public int[] arrayIntersection(int[] a, int[] b) {
+    	int [] newArray;
+    	for (int i = 0; i<a.length; i++) {
+    		
+    		for (int j = 0; j<b.length;j++) {
+    			
+    			if(a[i]==b[j]) {
+    			//	System.out.println(b[i]);
+    			}
+    		}
+    	}
         return null;
     }
     
@@ -33,7 +55,13 @@ public class Exercises {
     arraySort([8, 13, 9, 12]) → [8, 9, 12, 13]        
     */
     public int[] arraySort(int[] nums) {
-        return null;
+    	for (int i = 0; i<nums.length; i++) {
+    		if(nums[i]<nums[i+1]) {
+    			return nums;
+    		}
+    		return nums;
+    	}
+        return nums;
     }
 
     /*
@@ -44,7 +72,16 @@ public class Exercises {
     blackjack(19, 22) → 19
     */
     public int blackjack(int a, int b) {
-        return 0;
+    	if(a>b && a<21) { //21>19yes and 21<21no 
+    		System.out.println(a);
+    		return a;
+    		
+    	}
+    	else {
+    		System.out.println(b);
+    		return b;
+    	}
+      
     }
     
     /*
