@@ -1,5 +1,27 @@
 package com.techelevator;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class KataRomanNumerals {
+	
+	public int convertToDigit(String romanNumeral) {
+		Map<Character, Integer> romanMap = new HashMap<Character, Integer>();
+		
+		romanMap.put('I',1);
+		romanMap.put('V', 5);
+		romanMap.put('X', 10);
+		
+		int value = 0;
+		for (int i = 0; i< romanNumeral.length(); i++) {
+			value += romanMap.get(romanNumeral.charAt(i));
+		}
+				
+				
+		
+
+		return value;
+		
+	}
 
 }
