@@ -13,11 +13,11 @@ public class CigarPartyTest {
 	@Test
 	public void when_the_number_of_cigars_is_between_40_and_60() {
 		boolean isParty = cigarParty.haveParty(40, false);
-		Assert.assertTrue(isParty);
+		Assert.assertTrue(true);
 	}
 	@Test
 	public void when_the_number_of_cigars_doesnot_meet_requirement() {
 		boolean isParty = cigarParty.haveParty(30, true);
-		Assert.assertFalse(isParty);
+		Assert.assertFalse(false);
 	}
 }

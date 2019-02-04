@@ -18,6 +18,6 @@ public class NonStart {
         }
         else {
             return a.substring(1) + b.substring(1);
-        }
+        } 
     }
 }

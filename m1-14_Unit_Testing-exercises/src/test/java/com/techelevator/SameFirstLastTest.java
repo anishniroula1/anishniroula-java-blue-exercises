@@ -26,4 +26,9 @@ public class SameFirstLastTest {
 		boolean checkEqual = equal.isItTheSame(new int[] {});
 		Assert.assertFalse(false);
 	}
+	@Test
+	public void check_if_onely_one() {
+		boolean checkEqual = equal.isItTheSame(new int[] {1});
+		Assert.assertFalse(false);
+	}
 }
