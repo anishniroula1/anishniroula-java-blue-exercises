@@ -2,59 +2,27 @@ package com.techelevator;
 
 public class KataFizzBuzz {
 
-	public String fizzBuzz(int num) {
-
-		if (num <= 0 || num > 100) {
-
-			return "";
-		}
-		
-		
-		//53
-		if ((String.valueOf(num).contains("5") && String.valueOf(num).contains("3")) || (num % 3 == 0 && num % 5 == 0)) {
+	public String fizzBuzz(int number) {
+	    String endOutput = "";      
+	    if(number > 100 || number < 1) {
+	        endOutput = "";
+	    }
+	    else if ((String.valueOf(number).contains("5") && String.valueOf(number).contains("3")) || 
+	    		(number % 3 == 0 && number % 5 == 0)) {
 			return "FizzBuzz";
 		}
-//		if (String.valueOf(num).contains("3")) {
-//			return "Fizz";
-//		}
-		if (String.valueOf(num).contains("5") || num % 5 == 0) {
-			return "Buzz";
-		}
-		if (String.valueOf(num).contains("3") || num % 3 == 0) {
-			return "Fizz";
-		}
-		
-		
-//		if (String.valueOf(num).contains("5")) {
-//			return "Buzz";
-//		}
-		
-		
-		
-		
-		
-
-		
-		
-
-//		if (num % 3 == 0 && num % 5 == 0) {
-//			return "FizzBuzz";
-//		}
-
-		if (num % 3 != 0 && num % 5 != 0) {
-			String one = Integer.toString(num);
-			return one;
-		}
-
-//		if (num % 5 == 0) {
-//			return "Buzz";
-//		}
-//		if (num % 3 == 0) {
-//			return "Fizz";
-//		}
-
-		return null;
-
+	    else if (number % 3 == 0 && number % 5 == 0) {
+	        endOutput = "FizzBuzz";
+	    }
+	    else if (number % 3 == 0 || Integer.toString(number).contains("3")) {
+	        endOutput = "Fizz";
+	    }
+	    else if (number % 5 == 0 || Integer.toString(number).contains("5")) {
+	        endOutput = "Buzz";
+	    }
+	    else {
+	        endOutput = Integer.toString(number);
+	    }
+	    return endOutput;
 	}
-
-}
+	}
