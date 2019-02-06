@@ -12,7 +12,7 @@ public class KataRomanNumeralsTest {
 	}
 	
 	@Test
-	public void convert_single_character() { 
+	public void convert_single_character() {  
 		//String roman = "I";
 		
 		Assert.assertEquals("Failed to convert I",1, target.convertToDigit("I"));
@@ -31,6 +31,18 @@ public class KataRomanNumeralsTest {
 		Assert.assertEquals("Failed to convert III",3, target.convertToDigit("III"));
 		Assert.assertEquals("Failed to convert XXX",30, target.convertToDigit("XXX"));
 	Assert.assertEquals("Failed to convert XVI",16, target.convertToDigit("XVI"));
+	Assert.assertEquals(700, target.convertToDigit("DCC"));
+	Assert.assertEquals(1435, target.convertToDigit("MCDXXXV"));
+	
+	}
+	
+	@Test
+	public void convert_String_to_number() {
+		Assert.assertEquals("MCDXXXV", target.convertToRomanNumeral(1435));
+		Assert.assertEquals("M", target.convertToRomanNumeral(1000));
+		Assert.assertEquals("MMMCDLVI", target.convertToRomanNumeral(3456));
+		
+		
 	}
 
 }
