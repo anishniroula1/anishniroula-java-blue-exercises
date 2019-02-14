@@ -127,6 +127,7 @@ JOIN inventory ON store.store_id = inventory.store_id
 JOIN rental ON inventory.inventory_id = rental.inventory_id
 JOIN payment on rental.rental_id = payment.rental_id
 GROUP BY store.store_id,address.address
+ORDER BY store.store_id;
 
  
 
@@ -173,7 +174,7 @@ JOIN film_actor ON film.film_id = film_actor.film_id
 JOIN actor ON film_actor.actor_id = actor.actor_id
 JOIN inventory ON film.film_id = inventory.film_id
 JOIN rental ON inventory.inventory_id = rental.inventory_id
-GROUP BY actor.first_name, actor.last_name
+GROUP BY actor.actor_id
 ORDER BY number_of_rentals DESC
 LIMIT 20;
 
