@@ -11,6 +11,7 @@ CREATE TABLE project
         project_id serial primary key,
         department_id int NOT NULL,
         project_name varchar(100),
+        start_date timestamp, 
         
         
         constraint fk_project_department_id foreign key (department_id) references department(department_id) 
@@ -42,14 +43,13 @@ INSERT INTO department(department_id, name) VALUES(1,'Finance');
 INSERT INTO department(department_id, name) VALUES(2,'Developer');
 INSERT INTO department(department_id, name) VALUES(3,'IT');
 
-INSERT INTO project(project_id, department_id, project_name) VALUES(1, 2, 'Vending Machine');
-INSERT INTO project(project_id, department_id, project_name) VALUES(2, 1, 'Business');
-INSERT INTO project(project_id, department_id, project_name) VALUES(3, 3, 'Architect');
-INSERT INTO project(project_id, department_id, project_name) VALUES(4, 2, 'Microwave');
+--Project
+INSERT INTO project(project_id, department_id, project_name,start_date) VALUES(1, 2, 'Vending Machine', '2019-02-11');
+INSERT INTO project(project_id, department_id, project_name,start_date) VALUES(2, 1, 'Business','2019-01-15');
+INSERT INTO project(project_id, department_id, project_name,start_date) VALUES(3, 3, 'Architect','2018-04-02');
+INSERT INTO project(project_id, department_id, project_name,start_date) VALUES(4, 2, 'Microwave','2019-02-12');
 
-
-
-
+--Employee
 INSERT INTO employee (employee_id,job_title, last_name, first_name, gender, date_of_birth, date_of_hire, project_id, department_id) 
 VALUES (1,'Account Executive', 'Buffet','Fify', 'Female', '1991-11-18', '2018-10-02',1, 2 );
 INSERT INTO employee (employee_id,job_title, last_name, first_name, gender, date_of_birth, date_of_hire, project_id, department_id)  VALUES (2,'Branch Manager', 'Gate', 'Bill', 'Male', '1991-05-01','2016-10-04',2, 1);
