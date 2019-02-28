@@ -25,18 +25,33 @@
 	</head>
 	<body>
 		<h1>Exercise 1 - FizzBuzz</h1>
-		<ul>
-			<%--
-				Add a list item (i.e. <li>) containing each of the numbers from 1 to 100.
-				
-				if the number is divisible by 3, show "Fizz!" instead and style the item using the "fizz" class
-				
-				if the number is divisible by 5, show "Buzz!" instead and style the item using the "buzz" class
-				
-				if the number is divisible by both 3 and 5, show "FizzBuzz!" instead  and style the item using the "fizzbuzz" class
-				
-				see exercise1-fizzbuzz.png for example output
-			 --%>
-		</ul>
+		
+		<c:forEach begin = "1" end= "100" var= "num" >
+			<ul>
+		<c:choose>
+		<c:when test = "${num % 3==0 && num % 5==0 }">
+				<c:set var = "fizzBuzz" value="fizzbuzz"/>
+					<li class="${fizzBuzz}">FizzBuzz!</li>
+			</c:when>
+			<c:when test="${num % 3==0}">
+				<c:set var = "fizzbuzz" value ="fizz"/>
+				<li class="${fizzbuzz}">Fizz!</li>
+			</c:when>
+			<c:when test = "${num % 5==0}">
+				<c:set var = "fizzbuzz" value = "buzz"/>
+					<li class="${fizzbuzz}">Buzz!</li>
+			</c:when>
+			
+			<c:otherwise>
+			<c:set var="fizzbuzz" value=""/>
+			<li class= "${fizzbuzz}">${num}</li>
+			</c:otherwise>
+		
+		</c:choose>
+		 </ul>
+		</c:forEach>
+	
+			
+		
 	</body>
 </html>

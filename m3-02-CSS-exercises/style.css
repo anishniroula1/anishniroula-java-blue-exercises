@@ -11,7 +11,108 @@
   
   * {
     box-sizing: border-box;
+    
     font-family: Tahoma, Verdana, Segoe, sans-serif;
   }
+  /*layout 
+  grid 3 column
+ 20 80 10%
+ */
+
+ body{
+   display: grid;
+   grid-template-columns: 15% 81% 5%;
+   grid-gap: 5px;
+ }
   
+  aside img{
+    display: flex;
+    width: 150px;
+    position: fixed;  
+    left: 20px;
+  }
+
+  
+  aside{
+    display: flex;
+    width: 200px;
+    border-right: 2px solid rgba(0, 173, 238, 0.4);
+    height: 90%;
+  }
+  
+  nav ul{
+    display: flexbox;
+    justify-content: baseline;
+    padding: 0px;
+    margin-right: 10px;
+
+  }
+  a{
+    text-decoration: none;
+    color: #00ADEE;
+  }
+  ul li{
+    border-bottom: 2px solid rgba(0, 173, 238, 0.4);
+  }
+
+  nav ul li{
+    
+    display: flex;
+    text-align: center;
+    list-style-type: none;
+    
+    padding: 10px;
+    line-height: 30px;
+    font-weight: bold;
+    text-transform: uppercase;
+    
+  }
+
+  nav{
+    position: fixed;
+    top: 150px;  
+    left: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+  main >img{
+    width: 100%;
+    }
+  header img{
+     height:150px;
+     margin-bottom: 10px;
+    }
+header p{
+  display: none;
+  
+}
+  #what-we-do, #our-work{
+    border-right: 2px solid  rgba(170, 239, 135, 0.8);
+    
+    padding-left: 10px;
+  }
+
+  #contact-us{
+    padding-left: 10px;
+  }
+  
+  section {
+    display: flex;
+    }
+
+ 
+  #social{
+    display: none;
+  }
+
+  .fas{
+    padding: 10px;
+  }
+  section h2{
+    color: #8CC36F;
+  }
+
+  
+
   

@@ -12,9 +12,23 @@
 	</head>
 	<body>
 		<h1>Exercise 3 - Echo</h1>
+		<c:set var = "word" value = "${param.word}"/>
+		<c:set var = "count" value = "${param.count}"/>
 		
+		<c:forEach begin = "1" end = "${param.count}" var="num">
+		<c:set var = "cssClass" value="li"/>
+		<li class = "${cssClass}" style="font-size:${count-num}px">${word}</li>
+		</c:forEach>
 		<ul>
+		
+	
 		<%--
+		
+	
+		
+		
+		Ask user to input name and number
+		when name print the number has to decrese in px in CSS ways
 			Given two query string parameters, "word" and "count":
 			
 			Add a number of list items equal to "count".  Each list item should contain the value passed in "word".
