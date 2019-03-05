@@ -1,8 +1,9 @@
 body {
-	width: 100%;
+	display: grid; 
 	background-color: #212121;
 	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS',
 		sans-serif;
+	width: 100%;
 }
 
 body, header, nav {
@@ -47,12 +48,187 @@ nav li a:hover {
 
 section {
 	clear: both;
-	display: block;
 	width: 80%;
-	margin: 20px auto;
+	margin: 10px auto;
 	vertical-align: top;
 	text-align: center;
 	min-height: 450px;
 	background-color: #FFF;
 	border-radius: 7px;
+}
+
+
+
+img {
+width: 100%;
+}
+
+.starImg {
+width: 100px;
+margin-right: 100px;
+}
+
+.productImg {
+width: 30%;
+height:40%;
+padding-bottom: 0;
+margin-right: 40px;
+}
+.toyContainer {
+display: flex;
+margin-left: 50px;
+margin-right: 50px;
+border-bottom: solid 1px;
+margin-bottom: 10px;
+
+}
+
+.toyContainer:last-child{
+	border-bottom: none;
+}
+
+
+.productInfo p{
+margin: 0;
+text-align: left;
+}
+
+.name {
+display:inline-block;
+font-weight: bold;
+}
+.price {
+font-weight: bold;
+color: #a62610;
+}
+.bestSeller {
+display:inline-block;
+color: red;
+font-size: 12px;
+}
+.stockLeft{
+	color: #15d4ff;
+	font-weight: bold;
+	font-size: 16px;
+}
+/*------------------------------------*/
+.tile-toyContainer {
+display: inline-block !important;
+	width: 33%;
+}
+.tile-productInfo p{
+margin: 0;
+text-align: center;
+}
+
+.tile-name {
+display: inline-block;
+font-weight: bold;
+}
+.tile-price {
+font-weight: bold;
+color: #a62610;
+}
+.tile-bestSeller {
+display: inline-block;
+color: red;
+font-size: 12px;
+}
+.tile-stockLeft{
+	color: #15d4ff;
+	font-weight: bold;
+	font-size: 16px;
+}
+.tile-starImg {
+width: 100px;
+}
+
+/*--------------------------------------*/
+#table-container{
+	display: inline-flex;
+	padding-bottom: 40px;
+	padding-right: 10em;
+}
+#fixMargin{
+	background-color: gray;
+	vertical-align: middle;
+}
+#table-starImg{
+	display:inline-grid;
+	width: 100px;
+}
+
+
+#table-bestSeller{
+	margin-top:-20px;
+	color: red;
+	font-size: 12px;
+}
+#table-name{
+	font-weight: bold;
+}
+
+table{
+	border-spacing: 0px;
+	padding-left: 20px;
+	padding-right: 10em;
+}
+
+table img{
+	margin-right: 20px;
+	margin-left: 20px;
+	display: grid;
+	width: 150px;
+}
+
+#fixHeight{
+	vertical-align: middle;
+}
+
+/****************Product Detail***************/
+
+.container{
+	display: flex;
+	text-align:left;
+	
+}
+
+.container img{
+	width: 40%;
+	margin: 10px 10px 10px 10px;
+}
+
+.details{
+	margin: 10px 10px 10px 10px;
+}
+
+.details img{
+	width: 20%;
+	margin:0;
+}
+
+.detail-name{
+	font-weight: bold;
+	display: inline-block;
+	margin-right: 120px;
+}
+
+.detail-bestSeller{
+	display:inline-block;
+	color: red;
+	font-size: 16px;
+}
+.manufacture{
+    margin-block-start: -17px;
+    margin-block-end: -5px;
+}
+.detail-starImg{
+	display: inline;
+}
+.detail-price {
+font-weight: bold;
+color: #a62610;
+}
+.detail-weight{
+	margin-block-start: -17px;
 }
