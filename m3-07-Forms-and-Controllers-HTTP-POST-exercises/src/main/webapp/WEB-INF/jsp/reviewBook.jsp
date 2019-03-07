@@ -16,13 +16,13 @@
 		<form action="${postMessage}" method="post">
 		
 		<label class="rsubmit" for="username">Username: </label>
-		<input id="userText" name="username" type="text">
+		<input id="userText" name="username" type="text" required>
 		<br>
 		
 		<div class="rattingRadio">
 		<label id="rating" for="rating">Rating:</label><br>
 		<div class="radio">
-		<input type="radio" name="rating" value="1">1
+		<input type="radio" name="rating" value="1" required>1
 		<input type="radio" name="rating" value="2">2
 		<input type="radio" name="rating" value="3">3
 		<input type="radio" name="rating" value="4">4
@@ -30,11 +30,11 @@
 		</div>
 		</div>
 		<label for="title">Title: </label>
-		<input id="title" name="title" type="text">
+		<input id="title" name="title" type="text" required>
 		<br>
 		
 		<label for="text">Text: </label>
-		<input id="text" name="text" type="text">
+		<input id="text" name="text" type="text" required>
 		<br>
 		
 		<input id="rsubmit" type="submit" value="Submit">

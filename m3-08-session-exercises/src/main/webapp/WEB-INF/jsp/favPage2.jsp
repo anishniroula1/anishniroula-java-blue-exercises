@@ -8,11 +8,10 @@
 	<body>
 		<h1>Favorite Things Exercises</h1>
 		
-		<c:url var="favPage1" value="/favPage1"/>
-		<form action="${favPage1}" method="POST">
-			<h5>What is you Favorite Color?</h5>
-			<input name="color" type="text" required>
-			<br>
+		<c:url var="Page2input" value="/Page2input"/>
+		<form action="${Page2input}" method="POST">
+			<h5>What is you Favorite Food?</h5>
+			<input name="food" type="text" required><br>
 			<input type="submit" value="Next>>>">
 		</form>
 	</body>
