@@ -8,7 +8,7 @@
 
 <form action="${filmSearch}" method="GET" >
 <label for="minLength">Minimum Length:</label>
-<input type="text" name="minLength" />
+<input type="text" name="minLength" required/>
 
 <label for="maxLength">Maximum Length:</label>
 <input type="text" name="maxLength" />

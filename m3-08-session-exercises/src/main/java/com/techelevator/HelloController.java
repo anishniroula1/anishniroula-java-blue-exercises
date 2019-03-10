@@ -22,7 +22,7 @@ public class HelloController {
 	@RequestMapping(path="/favPage1", method=RequestMethod.POST)
 	public String postFavPage1(@RequestParam String color, ModelMap model) {
 		FavThings fav = new FavThings();
-		fav.setColor(color);
+		fav.setColor(color); 
 		
 		model.addAttribute("favThings",fav);
 		return "redirect:/favPage2";

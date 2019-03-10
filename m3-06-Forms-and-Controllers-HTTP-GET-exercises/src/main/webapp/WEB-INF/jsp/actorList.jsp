@@ -6,7 +6,7 @@
 <!-- Form goes here -->
 <c:url var="actorSearchURL" value="/search" />
 <form action="${actorSearchURL}" method="GET">
-	<input type="text" name="searchTerm" />
+	<input type="text" name="searchTerm"/>
 	<input type="submit" value="Search" />
 </form>
 <table class="table">
