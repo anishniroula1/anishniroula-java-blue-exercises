@@ -4,6 +4,12 @@
 <c:set var="pageTitle" value="New User Registration"/>
 <%@include file="common/header.jspf" %>
 
+<style>
+.error{
+color:red;
+}
+</style>
+
 <h2>New User Registration</h2>
 
 <c:url var="registration" value="/registration"/>

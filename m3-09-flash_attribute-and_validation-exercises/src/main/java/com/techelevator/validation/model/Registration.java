@@ -44,12 +44,12 @@ public class Registration {
 	private boolean paswordMatching;
 	
 	
-	@Pattern(regexp="^\\d{2}/\\d{2}/\\d{4}$", message="the Value Should be in MM/dd/yyy")
+	@Pattern(regexp="^\\d{2}/\\d{2}/\\d{4}$", message="the Value Should be in MM/dd/yyyy")
 	private String birthDate;
 	
 	@NotBlank(message="Please Enter number of Ticket")
-	@Min(value=1, message="# of Tickets must be between 1 and 10")
-	@Max(value=10, message="# of Tickets must be between 1 and 10")
+	@Min(value=1, message="0 is not Acceptable, please add more then 1")
+	@Max(value=10, message="Max value is 10, Please enter # below 11")
 	private String numberOfTicket;
 	
 
