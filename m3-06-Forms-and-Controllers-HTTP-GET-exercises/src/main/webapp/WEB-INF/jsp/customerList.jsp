@@ -4,9 +4,9 @@
 
 <%@include file="common/header.jspf"%>
 
-<c:url var="customerSearch" value="/customerSearch" />
+<c:url var="customerSearch" value="/customerList" />
 
-<form action="${customerSearch}" method="GET">
+<form action="${customerSearch}" method="POST">
 <input type="text" name="search" />
 
 <label for="sort">Sort:</label>

@@ -25,7 +25,7 @@ public class CustomerSearchController {
     	return "customerList";
     }
     
-    @RequestMapping("/customerSearch")
+    @RequestMapping(path="/customerList", method=RequestMethod.POST)
     public String searchCustomer(HttpServletRequest request) {
     	Customer customer = new Customer();
     	String isActive = convertBooleanToYesOrNo(customer.isActive());
