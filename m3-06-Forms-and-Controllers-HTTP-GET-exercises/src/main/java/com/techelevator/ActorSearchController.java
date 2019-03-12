@@ -22,7 +22,7 @@ public class ActorSearchController {
 	private ActorDao actorDao;
 
 	/* What request mapping do we want here */
-	@RequestMapping("/actorSearch")
+	@RequestMapping({"/actorSearch","/"})
 	public String showSearchActorForm() {
 		return "actorList";
 	}

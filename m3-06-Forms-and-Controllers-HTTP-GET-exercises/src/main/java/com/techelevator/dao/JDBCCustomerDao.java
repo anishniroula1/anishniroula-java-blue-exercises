@@ -26,14 +26,25 @@ public class JDBCCustomerDao implements CustomerDao {
 
 	@Override
 	public List<Customer> searchAndSortCustomers(String search, String sort) {
-		List<Customer> customerList = new ArrayList<>();
-		String customerSQL = "SELECT first_name, last_name, email, activebool FROM customer WHERE "
-				+ "first_name ILIKE ? OR last_name ILIKE ? ORDER BY ?"; 
-		SqlRowSet results = jdbcTemplate.queryForRowSet(customerSQL, search,search, sort);
-		while(results.next()) {
-			customerList.add(mapRowToCustomer(results));
+		List<Customer> matchingCustomers = new ArrayList<Customer>(); 
+		String customerSearchSql;
+		if (sort.equals("last_name")) {
+			customerSearchSql = "SELECT first_name, last_name, email, activebool FROM customer WHERE first_name ILIKE ? OR last_name ILIKE ? ORDER BY last_name";
+		} else if (sort.equals("email")) {
+			customerSearchSql = "SELECT first_name, last_name, email, activebool FROM customer WHERE first_name ILIKE ? OR last_name ILIKE ? ORDER BY email";
+		} else if (sort.equals("activebool")) {
+			customerSearchSql = "SELECT first_name, last_name, email, activebool FROM customer WHERE first_name ILIKE ? OR last_name ILIKE ? ORDER BY activebool";
+		} else {
+			customerSearchSql = "SELECT first_name, last_name, email, activebool FROM customer WHERE first_name ILIKE ? OR last_name ILIKE ? ORDER BY last_name";
 		}
-		return customerList;
+		
+		
+        SqlRowSet results = jdbcTemplate.queryForRowSet(customerSearchSql, search, search);
+        while(results.next()) {
+        	matchingCustomers.add(mapRowToCustomer(results)); 
+        }
+		
+		return matchingCustomers;
 	}
 	
 	private Customer mapRowToCustomer(SqlRowSet results) {
