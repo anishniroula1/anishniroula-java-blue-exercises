@@ -129,6 +129,13 @@ function makeHappy(arr) {
  * Use `map` and an anonymous function.
  */
 
+ /**
+  * Takes the object and concant he object together to show the properties.
+  * @param {*} properties its the object that hold the address info
+  * @param {p} p makes the list using the properties
+  * @returns {p.objectName} concant the object together
+  */
+
 function getFullAddressesOfProperties(properties) {
   return properties.map((p) => {
     return [p.streetNumber, p.streetName, p.streetType, p.city, p.state, p.zip].join(' ');
@@ -142,6 +149,14 @@ function getFullAddressesOfProperties(properties) {
  * Using `forEach`, find the largest element in an array.
  * It should work for strings and numbers.
  */
+
+ /**
+  * Takes an array and filter the value to show the largest element using 
+  * forEach fucntion
+  * @param{elem} elem display the list from the array to filter 
+  * @param {arr[]} arr hold the values in number and String
+  * @returns {largest} largest largest element from the array
+  */
 function findLargest(arr) {
   let largest = " ";
   arr.forEach((elem) => {
