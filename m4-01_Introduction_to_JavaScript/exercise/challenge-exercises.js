@@ -5,7 +5,11 @@ iqTest("") → 0 // there are no numbers in the given set
 iqTest("2 2 4 6") → 0 // all numbers are even, therefore there is no position of an odd number
 */
 function iqTest(numbers) {
+  if(number===''){
+    return 0;
+  }
     var numArr = numbers.split(' ');
+  
     var oddPosArr = [];
     var evenPosArr = [];
     for(var i = 0; i < numArr.length; i++) {
