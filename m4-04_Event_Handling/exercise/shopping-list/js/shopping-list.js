@@ -37,5 +37,9 @@ function displayGroceries() {
   });
 }
 
-setPageTitle();
-displayGroceries();
+
+document.addEventListener('DOMContentLoaded', ()=>{
+  setPageTitle();
+  displayGroceries();
+})
+
