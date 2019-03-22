@@ -131,3 +131,44 @@ main {
 footer {
   grid-area: footer;
 }
+
+@media only screen and (min-width: 725px) {
+  /* make the nav links go to one line */
+  nav ul {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  /* Each nav link should take up just a third of the width (with some padding) */
+  nav ul li {
+    flex-basis: 30%;
+  }
+
+  /* Make it so that we have two columns of tweets */
+  main .tweet {
+    flex-basis: 45%;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  /* Redefine the grid so that we have the nav next to the header */
+  body {
+    grid-template-columns: 2em 1fr 1fr 2em;
+    grid-template-areas:
+        '. header nav .'
+        '. content content .'
+        '. footer footer .';
+  }
+
+  /* Center the elements in the nav to the center */
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* show three tweets side by side */
+  main .tweet {
+    flex-basis: 29%;
+  }
+}
