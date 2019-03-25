@@ -1,3 +1,18 @@
+
+<script>
+import TodoList from './components/TodoList';
+export default {
+  components: {
+  TodoList
+}
+}
+
+</script>
+
+<style>
+
+</style>
+
 <template>
   <div id="todo-app">
     <todo-list></todo-list>
@@ -10,7 +25,7 @@
 export default {
   name: 'app',
   components: {
-    
+   
   }
 }
 </script>
