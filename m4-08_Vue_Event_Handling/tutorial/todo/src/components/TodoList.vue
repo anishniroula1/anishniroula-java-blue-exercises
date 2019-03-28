@@ -3,7 +3,8 @@
         <h1>My Daily Routine</h1>
         <ul>
             <li v-for="todo in todos" v-bind:key="todo.id" v-bind:class="{'todo-completed': todo.completed}">
-                {{todo.task}} <i class="far fa-check-circle" v-bind:class="{completed: todo.completed}"></i>
+    <input type="checkbox" v-on:click="changeStatus(todo.id)"/>
+    {{todo.task}} <i class="far fa-check-circle" v-bind:class="{'completed': todo.completed}"></i>
             </li>
         </ul>
     </div>
@@ -28,6 +29,12 @@ export default {
                {  task: 'Go to bed', completed: false }
            ]
         }
+    },
+    methods:{
+       changeStatus(id) {
+    const arrIndex = this.todos.findIndex((todo) => todo.id == id);
+    this.todos[arrIndex].completed = !this.todos[arrIndex].completed;
+}
     }
 }
 </script>
