@@ -2,7 +2,7 @@
     <div class="shopping-list">
         <h2>{{title}}</h2>
         <ul>
-            <li v-for="item in data" 
+            <li v-for="item in filteredShoppingList" 
                 v-bind:key="item.id" 
                 v-bind:class="{ completed: item.completed }" 
                 v-on:click="changeStatus(item.id,$event)">
@@ -18,11 +18,13 @@
 export default {
     name: 'shopping-list',
     props: {
-
+        title: String,
+        data: Array,
+        filter: String
     },
     data() {
         return {
-            
+           
         }
     },
     methods: {
@@ -38,6 +40,11 @@ export default {
         }
     },
     computed: {
+        filteredShoppingList(vm){
+            return vm.data.filter((item) =>{
+                    return item.name.includes(vm.filter);
+            });
+        }
 
     }
 }
