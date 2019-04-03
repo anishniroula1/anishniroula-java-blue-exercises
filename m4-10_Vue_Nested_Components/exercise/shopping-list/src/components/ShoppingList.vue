@@ -42,7 +42,7 @@ export default {
     computed: {
         filteredShoppingList(vm){
             return vm.data.filter((item) =>{
-                    return item.name.includes(vm.filter);
+                    return item.name.toUpperCase().match(vm.filter.toUpperCase());
             });
         }
 
