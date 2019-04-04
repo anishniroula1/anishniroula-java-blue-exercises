@@ -19,6 +19,7 @@
 export default {
     data() {
         return {
+          API_URL: "http://5ca62ee73a0826001427941e.mockapi.io/api/groceries",
             groceries: []
         }
     },
@@ -27,14 +28,37 @@ export default {
             const arrIndex = this.groceries.findIndex((item) => item.id == id);
             this.groceries[arrIndex].completed = !this.groceries[arrIndex].completed;
             
+            fetch (`${this.API_URL}/${id}`,{
+                method: 'PUT',
+                headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(this.groceries[arrIndex])
+            })
+            .then(response =>{
+              return response.json();
+            })
+            .catch(err =>console.error(err));
             // the checkbox might not have been target of the click event
             // If the user clicks on the list item we still want to check the checkbox
             if( event.target.type != 'checkbox' ) {
                 const checkbox = event.target.querySelector('input[type="checkbox"]');
                 checkbox.checked = !checkbox.checked;
             }
-        }
-    }
+        },
+
+    },
+
+    created() {
+      fetch(this.API_URL)
+        .then((response)=>{
+          return response.json();
+        })
+        .then((list)=>{
+          this.groceries = list;
+        })
+        .catch(err => console.error(err));
+}
 }
 </script>
 
