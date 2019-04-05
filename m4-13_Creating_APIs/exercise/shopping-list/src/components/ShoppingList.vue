@@ -19,7 +19,7 @@
 export default {
     data() {
         return {
-            API_URL: '',
+            API_URL: 'http://localhost:8080/shopping-list-api/api/shoppinglist/',
             groceries: []
         }
     },

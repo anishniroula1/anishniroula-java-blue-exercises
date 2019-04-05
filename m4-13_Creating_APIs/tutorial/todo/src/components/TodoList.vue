@@ -19,6 +19,16 @@
         {{todo.task}}
         <i class="far fa-check-circle" v-bind:class="{completed: todo.completed}"></i>
       </li>
+      <input type="text" name="Sex"/>
+      
+    </ul>
+    <ul>
+      <li
+        v-for="list in todos"
+        v-bind:key="list.id">
+        <input type="text" v-model="list.task">
+        {{list.task}}
+        </li>
     </ul>
   </div>
 </template>
@@ -27,7 +37,7 @@
 export default {
   data() {
     return {
-      apiURL: "YOUR_REST_API_URL",
+      apiURL: "http://localhost:8080/todoapp/api/todos",
       todos: []
     };
   },
