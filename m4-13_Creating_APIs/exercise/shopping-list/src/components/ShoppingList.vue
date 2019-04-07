@@ -9,7 +9,7 @@
           v-on:click="changeStatus(item.id,$event)">
         <input type="checkbox" :checked="item.completed">
         {{item.name}}
-        <i class="far fa-check-circle" :class="{ completed: item.completed }"></i>
+        <i class="far fa-check-circle" v-bind:class="{ completed: item.completed }"></i>
       </li>
     </ul>
   </div>
